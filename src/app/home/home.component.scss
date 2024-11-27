@@ -1,0 +1,56 @@
+*{
+  margin-left: 40px;
+  font-family: 'Geologica', sans-serif;
+}
+
+h1{
+  color: #603B21;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+#definition{
+  margin-top: 0;
+  padding-bottom: 20px;
+  font-style: italic ;
+}
+
+ul {
+  display: block;
+  margin: 8px;
+  list-style: none;
+
+  li {
+    list-style: circle;
+    padding-left: 18px;
+    padding-right: 10px;
+  }
+}
+
+div{
+  margin: 20px;
+  padding-top: 50px;
+
+  .navBtn{
+    width: 150px;
+    height: 40px;
+    padding: 5px;
+    background-color: #E1DDD5;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 2px 10px #a19f9f;
+    transition: all 0.3s ease;
+
+    &:hover{
+      background-color: #244459;
+      color: whitesmoke;
+      transform: translateY(-2px);
+    }
+  }
+
+}
+
+

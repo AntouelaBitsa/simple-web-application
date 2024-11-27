@@ -1,0 +1,30 @@
+<!-- Here could be used signals -->
+<h1>Display Users</h1>
+<p id="definition-display">This is a web application based on JavaScript! In this section is going to be displayed a list of all registered users in DB through API call.</p>
+<p>
+  The list consists of clickable items that display users Name and Surname that redirects to new web page tab.<br/>
+  Displaying detailed user information.
+</p>
+
+@for (user of userSignal(); track $index) {
+  <p>{{ user.firstName }}</p>
+  <p>{{ user.lastName }}</p>
+}
+
+<div class="user-table">
+  <table>
+    <thead>
+      <tr id="head-label">
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Antouela</td>
+        <td>Bitsa</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
