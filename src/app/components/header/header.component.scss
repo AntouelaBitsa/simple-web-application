@@ -1,0 +1,43 @@
+header{
+  display: flex;
+  padding-inline: 16px;
+  padding-block: 8px;
+  background-color: #244459;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > span {
+      cursor: pointer;
+      &:hover{
+        color: #E1DDD5;
+      }
+    }
+
+    ul {
+      display: flex;
+      margin: 8px;
+      list-style: none;
+    }
+
+    li {
+      list-style: none;
+      padding-left: 18px;
+      padding-right: 10px;
+      cursor: pointer;
+      &:hover{
+        color: #E1DDD5;
+      }
+    }
+  }
+}
+
+
