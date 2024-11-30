@@ -6,11 +6,6 @@
   Displaying detailed user information.
 </p>
 
-@for (user of userSignal(); track $index) {
-  <p>{{ user.firstName }}</p>
-  <p>{{ user.lastName }}</p>
-}
-
 <div class="user-table">
   <table>
     <thead>
@@ -20,11 +15,27 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Antouela</td>
-        <td>Bitsa</td>
-      </tr>
+      @for (user of userSignal(); track user.userID) {
+        <tr (click)="onUserClick(user)">
+            <td>
+              <!-- Antouela -->
+              {{user.name}}
+            </td>
+            <td>
+              <!-- Bitsa -->
+              {{user.surname}}
+            </td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>
+
+<!-- Debug -->
+<!-- @for (user of userSignal(); track user.userID) {
+  <div>
+    <p>{{user.userID}}</p>
+    <p>{{user.name}}</p>
+  </div>
+} -->
 
