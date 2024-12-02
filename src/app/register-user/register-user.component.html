@@ -1,1 +1,46 @@
-<p>register-user works!</p>
+<h1>Register to Simple Web Application</h1>
+
+<div class="container">
+  <div class="message">Please enter your personal information</div>
+  <form class="form-container" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="input-container">
+
+      <div class="input-area">
+        <span>Name</span>
+        <input type="text" formControlName="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="input-area">
+        <span>Surname</span>
+        <input type="text" formControlName="surname" placeholder="Enter your surname" required>
+      </div>
+
+      <div class="input-area">
+        <span>Gender</span>
+        <select name="gender-selector" id="gender-slctr" formControlName="gender" required>
+          <option value=" "> None </option>
+          <option value="M"> Male </option>
+          <option value="F"> Female </option>
+        </select>
+      </div>
+
+      <div class="input-area">
+        <span>Birthdate</span>
+        <input type="date" placeholder="dd/mm/yyyy" formControlName="birthDate" required>
+         <!--use of JS Date piecker-->
+      </div>
+
+      <div class="input-area">
+        <span>Home Address</span>
+        <textarea placeholder="Enter your home address" formControlName="homeAdd" required></textarea>
+      </div>
+
+      <div class="input-area">
+        <span>Work Address</span>
+        <textarea type="textarea" placeholder="Enter your work address" formControlName="workAdd" required></textarea>
+      </div>
+
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>
