@@ -1,7 +1,8 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, signal } from '@angular/core';
 import { ApiServiceService } from '../services/api-service.service';
 import { catchError } from 'rxjs';
 import { Users } from '../model/users.type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-users',
@@ -11,24 +12,36 @@ import { Users } from '../model/users.type';
   styleUrl: './display-users.component.scss'
 })
 export class DisplayUsersComponent implements OnInit{
-
-  onUserClick(userDto: Users) {
-    const uId = encodeURIComponent(userDto.userID);
-    const url = `/user-details-tab?userId=${uId}`;  //maybe must change to get path variable or backend to receive query parameter
-    window.open(url, '_blank');
-  }
+  users: Users[] = [];
   userService = inject(ApiServiceService);
-  userSignal = signal<Array<Users>>([]);
+  userSignal = signal<Users[]>([]);
+
+  constructor(private cdr: ChangeDetectorRef){}
 
   ngOnInit(): void {
-    this.userService.getUsersFromAPI().
-    pipe(catchError((err) => {
-      console.log(err);
-      throw err;
-    })).
-    subscribe((users) => {
-      console.log(this.userSignal);
-      this.userSignal.set(users);
-    });
+    this.users = this.userSignal();
+    console.log(this.users);
+
+    this.userService.getUsersFromAPI().subscribe(user =>{
+      this.users = user;
+      console.log('this user: ',this.users);
+      this.cdr.detectChanges();
+      console.log('CDR: ',this.cdr);
+    })
   }
+
+  onUserClick(userId: number) {
+    console.log('User clicked:', userId);
+    if(!userId){
+      console.error('UserID undefined or null: ', userId );
+      return;
+    }
+    console.log('User id from onclick: ', userId);
+    const uId = encodeURIComponent(userId.toString());
+    console.log('uId encodedURIComponent: ', uId);
+    const url = `/user-details-tab/${uId}`;
+    console.log('URL to the new page witn userId: ', url);
+    window.open(url, '_blank');
+  }
+
 }

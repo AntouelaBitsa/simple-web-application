@@ -1,4 +1,3 @@
-<!-- Here could be used signals -->
 <h1>Display Users</h1>
 <p id="definition-display">This is a web application based on JavaScript! In this section is going to be displayed a list of all registered users in DB through API call.</p>
 <p>
@@ -15,14 +14,12 @@
       </tr>
     </thead>
     <tbody>
-      @for (user of userSignal(); track user.userID) {
-        <tr (click)="onUserClick(user)">
+      @for (user of users; track user.userID) {
+        <tr (click)="onUserClick(user.userID)">
             <td>
-              <!-- Antouela -->
               {{user.name}}
             </td>
             <td>
-              <!-- Bitsa -->
               {{user.surname}}
             </td>
         </tr>
@@ -31,11 +28,4 @@
   </table>
 </div>
 
-<!-- Debug -->
-<!-- @for (user of userSignal(); track user.userID) {
-  <div>
-    <p>{{user.userID}}</p>
-    <p>{{user.name}}</p>
-  </div>
-} -->
 
