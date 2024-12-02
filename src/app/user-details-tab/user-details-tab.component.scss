@@ -58,3 +58,13 @@ tbody th {
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
+
+@media (max-width: 600px) {
+  .user-table table {
+    font-size: 12px;
+  }
+
+  .user-table table td, .user-table table th {
+    padding: 8px;
+  }
+}

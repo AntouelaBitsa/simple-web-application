@@ -1,6 +1,8 @@
-<h1>Details for User Id: {{userObj()?.name}} {{userObj()?.surname}}</h1>
+<h1 *ngIf="users">Details for User: {{users.name}} {{users.surname}}</h1>
 
-<div class="user-table">
+<div *ngIf="users" class="user-table">
+  <!-- Test -->
+  <!-- <button (click)="logAddresses()">Log Addresses</button> -->
   <table class="tabel-container">
     <thead>
       <tr>
@@ -24,25 +26,23 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{userObj()?.userID}}</td>
+        <td>{{users.userID}}</td>
       </tr>
       <tr>
-          <td>{{userObj()?.name}}</td>
-          <td>{{userObj()?.surname}}</td>
+          <td>{{users.name}}</td>
+          <td>{{users.surname}}</td>
       </tr>
       <tr>
-        <td>{{userObj()?.gender}}</td>
+        <td>{{users.gender}}</td>
       </tr>
       <tr>
-        <td>{{userObj()?.birthDate}}</td>
+        <td>{{users.birthDate}}</td>
       </tr>
       <tr>
-        <td>{{userObj()?.homeAddress?.homeAddID}}</td>
-        <td>{{userObj()?.homeAddress?.homeAddress}}</td>
+        <td>ID: {{users.homeAdd?.id || 'N/A'}} - Address: {{users.homeAdd?.address || 'N/A'}}</td>
       </tr>
       <tr>
-        <td>{{userObj()?.workAddress?.workAddID}}</td>
-        <td>{{userObj()?.workAddress?.workAddress}}</td>
+        <td>ID: {{users.workAdd?.id || 'N/A'}} - Address: {{users.workAdd?.address || 'N/A'}}</td>
       </tr>
     </tbody>
   </table>
