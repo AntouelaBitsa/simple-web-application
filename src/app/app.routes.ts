@@ -23,5 +23,12 @@ export const routes: Routes = [
     loadComponent: () => {
     return import('./register-user/register-user.component').then((m) => m.RegisterUserComponent);
     },
+  },
+  {
+    // User Details Tab Component ready to be rendered
+    path: 'user-details-tab/:userId',
+    loadComponent: () => {
+    return import('./user-details-tab/user-details-tab.component').then((m) => m.UserDetailsTabComponent);
+    },
   }
 ];
